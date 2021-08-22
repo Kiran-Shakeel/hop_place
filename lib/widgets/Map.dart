@@ -32,7 +32,7 @@ class Maps extends StatelessWidget {
             initialCameraPosition: CameraPosition(
                 target: LatLng(33.57673785725179, 73.0629142031694), zoom: 15),
             zoomControlsEnabled: false,
-            markers: ,
+          
           ),
         ),
       ),
