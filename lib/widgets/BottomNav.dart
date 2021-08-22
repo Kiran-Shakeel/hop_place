@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
-
+import 'package:hop_place_screens/utils/routes.dart';
 
 class BottomNav extends StatelessWidget {
-  const BottomNav({Key? key}) : super(key: key);
+  final bool check;
+  const BottomNav({Key? key, required this.check}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(15),
+      padding: EdgeInsets.only(
+        left: 15,
+        right: 15,
+        bottom: 15,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ElevatedButton(
-              onPressed: null,
+              onPressed: () => Navigator.pop(context),
               child: Text(
                 'Back',
                 style: TextStyle(
@@ -21,10 +26,17 @@ class BottomNav extends StatelessWidget {
                 ),
               ),
               style: ButtonStyle(
+                  elevation: MaterialStateProperty.all(0),
                   backgroundColor:
                       MaterialStateProperty.all(Colors.transparent))),
           ElevatedButton(
-              onPressed: null,
+              style: ButtonStyle(
+                  backgroundColor: check == false
+                      ? MaterialStateProperty.all(Colors.grey)
+                      : MaterialStateProperty.all(Colors.black)),
+              onPressed: () => check == false
+                  ? null
+                  : Navigator.pushNamed(context, MyRoutes.placeRoute),
               child: Text(
                 'Next',
                 style: TextStyle(color: Colors.white),

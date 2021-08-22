@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
 class UpperButtons extends StatelessWidget {
-  final Color Selcolor;
-  const UpperButtons({Key? key, required this.Selcolor}) : super(key: key);
+  final Color selcolor;
+  const UpperButtons({Key? key, required this.selcolor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
+    double statusSize = MediaQuery.of(context).padding.top;
+    return Container(
+      margin: EdgeInsets.only(top: statusSize + 15, left: 15, right: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CircleAvatar(
-            backgroundColor: Selcolor.withOpacity(0.2),
+            backgroundColor: selcolor.withOpacity(0.2),
             child: IconButton(
                 onPressed: null,
                 icon: Icon(
@@ -24,7 +25,7 @@ class UpperButtons extends StatelessWidget {
             onPressed: null,
             style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all(Selcolor.withOpacity(0.2)),
+                    MaterialStateProperty.all(selcolor.withOpacity(0.2)),
                 shape: MaterialStateProperty.all(StadiumBorder())),
             child: Text(
               'Help',

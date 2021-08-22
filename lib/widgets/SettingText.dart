@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class SettingText extends StatelessWidget {
   final double size;
   final String s;
+ 
   const SettingText({Key? key, required this.size, required this.s})
       : super(key: key);
 

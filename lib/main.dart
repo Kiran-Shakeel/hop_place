@@ -1,31 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:hop_place_screens/pages/HomePage.dart';
 
 import 'package:hop_place_screens/pages/Place.dart';
+import 'package:hop_place_screens/utils/routes.dart';
 
 void main() {
   runApp(MyApp());
 }
+
 const kGoogleApiKey = "AIzaSyCLJMMGM-wB1GZ-ta-YwXkVUWs3_GBGVQg";
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Hop Place',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Place(),
+      home: HomePage(),
+      routes: {
+        MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.placeRoute: (context) => Place(),
+      },
     );
   }
 }

@@ -2,15 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Maps extends StatelessWidget {
+  final Function updateUi;
   final double size;
-  const Maps({Key? key, required this.size}) : super(key: key);
+  const Maps({Key? key, required this.size, required this.updateUi})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final addressCon = TextEditingController();
+
+    void _check() {
+      if (addressCon.text.isEmpty) {
+        updateUi("");
+      }
+      updateUi(addressCon.text);
+    }
+
     return Stack(children: [
       Container(
         margin: EdgeInsets.only(top: size * 0.38),
-        height: size * 0.5,
+        height: size * 0.57,
         decoration: BoxDecoration(),
         child: ClipRRect(
           borderRadius: BorderRadius.only(
@@ -21,6 +32,7 @@ class Maps extends StatelessWidget {
             initialCameraPosition: CameraPosition(
                 target: LatLng(33.57673785725179, 73.0629142031694), zoom: 15),
             zoomControlsEnabled: false,
+            markers: ,
           ),
         ),
       ),
@@ -32,7 +44,9 @@ class Maps extends StatelessWidget {
           height: 50,
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(20)),
-          child: TextFormField(
+          child: TextField(
+            controller: addressCon,
+            onSubmitted: (_) => _check(),
             maxLines: 1,
             decoration: InputDecoration(
                 prefixIcon: Icon(

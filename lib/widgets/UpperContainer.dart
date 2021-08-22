@@ -9,15 +9,11 @@ class UpperContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: size,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Colors.pink, Colors.purple])),
-      
-
-            );
+      height: size,
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+          gradient:
+              LinearGradient(colors: [Color(0xff9900FF), Color(0xffA64D79)])),
+    );
   }
 }
